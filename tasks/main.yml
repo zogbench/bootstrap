@@ -1,0 +1,21 @@
+---
+# tasks file for bootstrap
+
+- name: Add Universe Repository
+  command: add-apt-repository universe
+
+- name: Update Cache
+  apt:
+    update_cache: yes
+
+- name: Upgrade All Packages
+  apt:
+    upgrade: full
+
+- name: Install packages
+  apt: state=present pkg={{ item }}
+  with_items: "{{ ubuntu_packages }}"
+
+- name: Remove unnecessary packages
+  apt: state=absent pkg={{ item }}
+  with_items: "{{ ubuntu_remove_packages }}"

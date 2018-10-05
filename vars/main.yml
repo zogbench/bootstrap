@@ -1,0 +1,17 @@
+---
+ubuntu_common_deploy_user_name: deploy
+
+ubuntu_common_deploy_public_keys:
+  - /home/zog/ansible/id_rsa.pub
+
+ubuntu_packages:
+  - curl
+  - ufw
+  - whois
+  - git
+  - python3-pip
+
+ubuntu_remove_packages:
+  - landscape-common
+
+ubuntu_common_ssh_port: 22
